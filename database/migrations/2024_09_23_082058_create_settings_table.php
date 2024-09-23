@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->string('web_name');
+            $table->string('web_logo')->nullable();
+            $table->string('web_fav')->nullable();
+            $table->string('domain');
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }
