@@ -72,7 +72,6 @@
                                 @if($errors->any())
                                 @foreach ($errors->all() as $error)
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                  
                                     {{ $error }}
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                   </div>
@@ -192,7 +191,7 @@
         <!--**********************************
             Footer start
         ***********************************-->
-        <div class="footer ps-0" style="position: fixed;left: 37%;bottom: 0;" >
+        <div class="footer ps-0"  >
             <div class="copyright">
                 <p>Copyright © Designed &amp; Developed by <a href="http://synexdigital.com/" target="_blank">Synex Digital</a> 2024</p>
             </div>
