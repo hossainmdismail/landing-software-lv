@@ -2,33 +2,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
+@php
+    $setting = App\Models\Setting::first();
+@endphp
 <head>
 	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords"
-		content="admin dashboard, admin template, administration, analytics, bootstrap, disease, doctor, elegant, health, hospital admin, medical dashboard, modern, responsive admin dashboard">
-	<meta name="author" content="DexignZone">
-	<meta name="robots" content="">
-	<meta name="description"
-		content="Welly is a clean-code, responsive Django Admin template that can be easily customized to fit the needs of various hospital, medical dashboard, health, doctor, and other businesses.">
-	<meta property="og:title" content="Welly - Django Hospital Admin Dashboard Bootstrap Template">
-	<meta property="og:description"
-		content="Welly is a clean-code, responsive Django Admin template that can be easily customized to fit the needs of various hospital, medical dashboard, health, doctor, and other businesses.">
-	<meta property="og:image" content="../social-image.png">
-	<meta name="format-detection" content="telephone=no">
 
+    <link rel="favicon" href="{{ asset('uploads/web/'.$setting->web_fav)  }}">
 	<!-- Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Title -->
-	<title>Welly - Django Hospital Admin Dashboard Bootstrap Template</title>
+	<title> {{ config('app.name') }}</title>
 	<!-- Favicon icon -->
     @include('dashboard.layouts.style')
 </head>
 
 <body>
-
+   
 	<!--*******************
         Preloader start
     ********************-->

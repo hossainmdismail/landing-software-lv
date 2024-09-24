@@ -67,16 +67,25 @@
                             <div class="card-header">
                                 <h4 class="card-title"> Get Started </h4>
                             </div>
+
                             <div class="card-body">
+                                @if($errors->any())
+                                @foreach ($errors->all() as $error)
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    {{ $error }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                  </div>
+                                @endforeach
+                                @endif
 								<div id="smartwizard" class="form-wizard order-create">
 									<ul class="nav nav-wizard">
-										<li><a class="nav-link" href="#wizard_one">
+										<li class="disabled"><a class="nav-link" href="#wizard_one">
 											<span>1</span>
 										</a></li>
-										<li><a class="nav-link" href="#wizard_two">
+										<li class="disabled"><a class="nav-link" href="#wizard_two">
 											<span>2</span>
 										</a></li>
-										<li><a class="nav-link" href="#wizard_three">
+										<li class="disabled"><a class="nav-link" href="#wizard_three">
 											<span>3</span>
 										</a></li>
 										{{-- <li><a class="nav-link" href="#wizard_four">
@@ -92,13 +101,15 @@
 												<div class="col-lg-12 mb-2">
 													<div class="form-group">
 														<label class="form-label">Website Name<span class="required">*</span></label>
-														<input type="text" name="web_name" class="form-control" placeholder="Synex Digital" required id="name">
+														<input type="text" name="web_name" class="form-control @error('web_name') is-invalid @enderror" placeholder="Synex Digital" required id="name" value="{{ old('web_name') }}">
+
+
 													</div>
 												</div>
 												<div class="col-lg-6 mb-2">
 													<div class="form-group">
 														<label class="form-label">Website Logo</label>
-														<input type="file" name="web_logo" class="form-control" placeholder="" >
+														<input type="file" name="web_logo" class="form-control" placeholder=""  >
 													</div>
 												</div>
 												<div class="col-lg-6 mb-2">
@@ -115,7 +126,9 @@
 												<div class="col-lg-6 mb-2">
 													<div class="form-group">
 														<label class="form-label">Domain Name<span class="required">*</span></label>
-														<input type="text" name="domain" class="form-control" placeholder="www.example.com" required>
+														<input type="text" name="domain" class="form-control @error('domain') is-invalid @enderror" value="{{ old('domain') }}"   placeholder="www.example.com" required >
+
+
 													</div>
 												</div>
 												<div class="col-lg-6 mb-2">
@@ -144,13 +157,17 @@
                                                 <div class="col-lg-12 mb-2">
 													<div class="form-group">
 														<label class="form-label">Email<span class="required">*</span>  </label>
-														<input type="email" class="form-control" name="email" placeholder="example@example.com" autocomplete="username">
+														<input type="email" class="form-control @error('email') is-invalid
+
+                                                        @enderror" name="email" placeholder="example@example.com" autocomplete="username">
 													</div>
 												</div>
 												<div class="col-lg-12 mb-2">
 													<div class="form-group">
 														<label class="form-label">Password <span class="required">*</span></label>
-                                                        <input type="password" class="form-control" name="password" placeholder="********" autocomplete="new-password">
+                                                        <input type="password" class="form-control @error('password') is-invalid
+
+                                                        @enderror" name="password" placeholder="********" autocomplete="new-password">
 													</div>
 												</div>
 
@@ -174,7 +191,7 @@
         <!--**********************************
             Footer start
         ***********************************-->
-        <div class="footer ps-0" style="position: fixed;left: 37%;bottom: 0;" >
+        <div class="footer ps-0"  >
             <div class="copyright">
                 <p>Copyright © Designed &amp; Developed by <a href="http://synexdigital.com/" target="_blank">Synex Digital</a> 2024</p>
             </div>
@@ -252,10 +269,21 @@
             });
         }, 100); // Delay script execution by 100 milliseconds
         let x = false;
-        $('.sw-btn-next').on('click', function() {
-            if($('#name').val() == ''){
-                $('#name').focus();
+        if($('#name').val() == ''){
+            $('.sw-btn-next').addClass('disabled');
+        }
+        $('#name').on('input', function() {
+            let val = $(this).val();
+            if (val == '') {
+                if(!$('.sw-btn-next').hasClass('disabled')){
+                    $('.sw-btn-next').addClass('disabled');
+                }
+            } else {
+                $('.sw-btn-next').removeClass('disabled');
             }
+        })
+        $('.sw-btn-next').on('click', function() {
+
             if(x == true){
                 $('#wizard_form').submit();
             }

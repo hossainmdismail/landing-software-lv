@@ -1,4 +1,4 @@
-<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('dashboard_assets/images/favicon.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/web/'.$setting->web_fav)  }}">
 
 
 
