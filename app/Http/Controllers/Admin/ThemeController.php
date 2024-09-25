@@ -32,7 +32,6 @@ class ThemeController extends Controller
             }
         }
 
-        return view('theme::index')->with(['themes' => $themes]);
-        // return view('themes.index');
+        return view('dashboard.pages.theme.theme')->with(['themes' => $themes]);
     }
 }
