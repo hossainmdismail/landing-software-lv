@@ -891,7 +891,8 @@
 										<span class="ms-2">Users</span>
 									</a>
 									<div class="px-4 pt-2">
-										<a href="#" class="btn btn-rounded btn-outline-dark w-100 text-black">
+
+										<a href="{{ route('admin.logout') }}" class="btn btn-rounded btn-outline-dark w-100 text-black">
 											<svg width="22px" style="margin-right: .31rem;" height="22px"
 												viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
 
