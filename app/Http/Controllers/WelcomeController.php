@@ -17,7 +17,7 @@ class WelcomeController extends Controller
         $setting = Setting::first();
         if($setting){
             if(!Auth::check()){
-                return 'not logged in';
+                return redirect('/login');
             }else{
                 return view('dashboard.index');
             }
