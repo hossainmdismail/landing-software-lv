@@ -845,7 +845,7 @@
 											<img class="nav-profile" src="{{ asset('dashboard_assets/images/profile/17.webp') }}" alt="">
 										</div>
 										<div class="text-center">
-											<h6 class="mb-0">{{ Auth::user()->name ? Auth::user()->name.'|':''}}{{Str::ucfirst(Auth::user()->role) }} </h6>
+											{{-- <h6 class="mb-0">{{ auth()->user()->name ? auth()->user()->name.'|':''}}{{Str::ucfirst(Auth::user()->role) }} </h6> --}}
                                             <p>{{ Auth::user()->email }} </p>
 										</div>
 									</div>
