@@ -157,9 +157,9 @@
                                                 <div class="col-lg-12 mb-2">
 													<div class="form-group">
 														<label class="form-label">Email<span class="required">*</span>  </label>
-														<input type="email" class="form-control @error('email') is-invalid
+														<input name="adminEmail" type="email" class="form-control @error('email') is-invalid
 
-                                                        @enderror" name="email" placeholder="example@example.com" autocomplete="username">
+                                                        @enderror"  placeholder="example@example.com" autocomplete="username">
 													</div>
 												</div>
 												<div class="col-lg-12 mb-2">
@@ -167,7 +167,7 @@
 														<label class="form-label">Password <span class="required">*</span></label>
                                                         <input type="password" class="form-control @error('password') is-invalid
 
-                                                        @enderror" name="password" placeholder="********" autocomplete="new-password">
+                                                        @enderror" name="adminPassword" placeholder="********" autocomplete="new-password">
 													</div>
 												</div>
 

@@ -642,17 +642,17 @@
 					<div class="collapse navbar-collapse justify-content-between">
 						<div class="header-left">
 							<div class="dashboard_bar">
-								<div class="input-group search-area d-lg-inline-flex d-none">
+								{{-- <div class="input-group search-area d-lg-inline-flex d-none">
 									<input type="text" class="form-control" placeholder="Search here...">
 									<div class="input-group-append">
 										<span class="input-group-text"><a href="javascript:void(0)"><i
 													class="flaticon-381-search-2"></i></a></span>
 									</div>
-								</div>
+								</div> --}}
 							</div>
 						</div>
 						<ul class="navbar-nav header-right">
-							<li class="nav-item dropdown notification_dropdown">
+							{{-- <li class="nav-item dropdown notification_dropdown">
 								<a class="nav-link  ai-icon" href="javascript:void(0)" role="button"
 									data-bs-toggle="dropdown">
 									<svg width="25px" height="25px" viewBox="0 0 24 24" fill="none"
@@ -834,23 +834,23 @@
 										</ul>
 									</div>
 								</div>
-							</li>
+							</li> --}}
 							<li class="nav-item dropdown header-profile">
 								<a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown">
-									<img src="images/profile/17.webp" width="20" alt="">
+									<img src="{{ asset('dashboard_assets/images/profile/17.webp') }}" width="20" alt="">
 								</a>
 								<div class="dropdown-menu dropdown-menu-end shadow">
 									<div>
 										<div class="p-4 d-flex justify-content-center">
-											<img class="nav-profile" src="./images/profile/17.webp" alt="">
+											<img class="nav-profile" src="{{ asset('dashboard_assets/images/profile/17.webp') }}" alt="">
 										</div>
 										<div class="text-center">
-											<h6 class="mb-0">Esmail Khalifa</h6>
-											<p>esmail@synexdigital.com</p>
+											{{-- <h6 class="mb-0">{{ auth()->user()->name ? auth()->user()->name.'|':''}}{{Str::ucfirst(Auth::user()->role) }} </h6> --}}
+                                            <p>{{ Auth::user()->email }} </p>
 										</div>
 									</div>
 									<div class="px-4 pb-2">
-										<a href="#" class="btn btn-rounded btn-outline-dark w-100 text-black">Manage
+										<a href="{{ route('admin.profile') }}" class="btn btn-rounded btn-outline-dark w-100 text-black">Manage
 											Account</a>
 									</div>
 									<a href="app-profile.html" class="dropdown-item ai-icon">
